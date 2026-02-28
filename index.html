@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cavaridge — Built to Operate</title>
+<meta name="description" content="Multi-division operating company spanning technology, health, real estate, agriculture, and lifestyle.">
+<meta property="og:title" content="Cavaridge — Built to Operate">
+<meta property="og:description" content="Multi-division operating company spanning technology, health, real estate, agriculture, and lifestyle.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ─── Reset & Tokens ─── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --purple:#5E465C;--navy:#1B2A4A;--amber:#C4883A;--sage:#6B8F71;
+  --warm-white:#F5F2ED;--charcoal:#2D2D2D;--white:#FFFFFF;
+  --border:#E8E5E0;--mid-gray:#7A7A7A;
+  --font-display:'DM Serif Display',Georgia,serif;
+  --font-body:'Inter',system-ui,sans-serif;
+  --max-w:1140px;--max-w-text:760px;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--charcoal);background:var(--warm-white);-webkit-font-smoothing:antialiased;line-height:1.6}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+::selection{background:rgba(196,136,58,.2)}
+
+/* ─── Typography ─── */
+h1,h2,h3{font-family:var(--font-display);font-weight:400;line-height:1.15}
+h1{font-size:clamp(2.25rem,5vw,3.25rem);margin-bottom:1.25rem}
+h2{font-size:clamp(1.75rem,3.5vw,2.25rem);margin-bottom:1rem}
+h3{font-size:1.25rem;margin-bottom:.5rem}
+p{margin-bottom:1rem}
+p:last-child{margin-bottom:0}
+
+/* ─── Layout ─── */
+.container{max-width:var(--max-w);margin:0 auto;padding:0 2rem}
+.text-container{max-width:var(--max-w-text);margin:0 auto}
+.text-center{text-align:center}
+.section{padding:5rem 2rem}
+.section-sm{padding:3.5rem 2rem}
+
+/* ─── Buttons ─── */
+.btn{display:inline-block;padding:14px 32px;border-radius:6px;font-family:var(--font-body);font-size:.95rem;font-weight:600;border:none;cursor:pointer;transition:all .2s ease;text-decoration:none}
+.btn:hover{opacity:.9;transform:translateY(-1px)}
+.btn-amber{background:var(--amber);color:var(--white)}
+.btn-white{background:var(--white);color:var(--navy)}
+.btn-sm{padding:8px 20px;font-size:.85rem}
+.btn-block{width:100%}
+
+/* ─── Header ─── */
+.site-header{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border);transition:box-shadow .2s}
+.site-header.scrolled{box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:var(--max-w);margin:0 auto;padding:0 2rem}
+.wordmark{font-family:var(--font-display);font-size:1.5rem;color:var(--purple);letter-spacing:.15em;cursor:pointer;text-decoration:none}
+.wordmark-white{color:var(--white)}
+.nav{display:flex;align-items:center;gap:2rem}
+.nav-link{font-size:.9rem;font-weight:500;color:var(--charcoal);cursor:pointer;padding:4px 0;border-bottom:2px solid transparent;transition:border-color .2s}
+.nav-link:hover,.nav-link.active{border-bottom-color:var(--amber)}
+.nav-dropdown{position:relative}
+.nav-dropdown-menu{position:absolute;top:calc(100% + 12px);left:-16px;background:var(--white);border:1px solid var(--border);border-radius:8px;padding:8px 0;min-width:220px;box-shadow:0 8px 24px rgba(0,0,0,.08);opacity:0;visibility:hidden;transform:translateY(-4px);transition:all .2s ease}
+.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown-menu:hover{opacity:1;visibility:visible;transform:translateY(0)}
+.dropdown-item{display:block;padding:10px 20px;font-size:.88rem;color:var(--charcoal);cursor:pointer;transition:background .15s}
+.dropdown-item:hover{background:var(--warm-white)}
+.dropdown-item.active{color:var(--amber)}
+.mobile-toggle{display:none;align-items:center;gap:1rem}
+.hamburger{background:none;border:none;cursor:pointer;padding:4px}
+.mobile-menu{display:none;background:var(--white);border-top:1px solid var(--border);padding:1rem 2rem 1.5rem}
+.mobile-menu.open{display:block}
+.mobile-link{display:block;padding:12px 0;font-size:.95rem;font-weight:500;color:var(--charcoal);cursor:pointer;border-bottom:1px solid var(--border)}
+.mobile-link.active{color:var(--amber)}
+.chevron{transition:transform .2s;margin-left:4px}
+@media(max-width:900px){
+  .nav{display:none !important}
+  .mobile-toggle{display:flex !important}
+}
+
+/* ─── Hero Variants ─── */
+.hero{padding:6rem 2rem 5rem;text-align:center;position:relative;overflow:hidden}
+.hero-purple{background:var(--purple);color:var(--white)}
+.hero-purple p{color:rgba(255,255,255,.82)}
+.hero-image{position:relative;min-height:480px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--white)}
+.hero-image::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(94,70,92,.85) 0%,rgba(27,42,74,.8) 100%);z-index:1}
+.hero-image .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-image .hero-content{position:relative;z-index:2;max-width:800px;padding:2rem}
+.hero-image .hero-content p{color:rgba(255,255,255,.85)}
+
+/* ─── Divisions Grid ─── */
+.divisions-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:2rem}
+.division-card{background:var(--white);border-radius:10px;overflow:hidden;cursor:pointer;border:1px solid var(--border);transition:all .25s ease}
+.division-card:hover{border-color:var(--amber);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.06)}
+.division-card-img{height:180px;overflow:hidden;position:relative}
+.division-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.division-card:hover .division-card-img img{transform:scale(1.05)}
+.division-card-body{padding:1.75rem}
+.division-card-body h3{color:var(--purple)}
+.division-card-body p{font-size:.9rem;color:var(--charcoal);margin-bottom:.75rem}
+.card-link{font-size:.85rem;color:var(--amber);font-weight:600}
+
+/* ─── Service Blocks ─── */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2.5rem;margin-top:2.5rem}
+.service-block{padding:2rem;background:var(--white);border-radius:10px;border:1px solid var(--border)}
+.service-block h3{color:var(--purple)}
+.service-block p{font-size:.9rem}
+.service-icon{width:48px;height:48px;border-radius:10px;background:rgba(94,70,92,.08);display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.service-icon svg{width:24px;height:24px;stroke:var(--purple);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* ─── Beliefs Grid ─── */
+.beliefs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2.5rem;margin-top:2.5rem}
+.belief-card{text-align:left}
+.belief-bar{width:40px;height:3px;background:var(--purple);border-radius:2px;margin-bottom:1rem}
+.belief-card h3{color:var(--purple)}
+.belief-card p{font-size:.9rem}
+
+/* ─── Split Section ─── */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch}
+.split-text{padding:4rem 3rem;display:flex;flex-direction:column;justify-content:center}
+.split-image{position:relative;min-height:400px;overflow:hidden}
+.split-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media(max-width:768px){
+  .split{grid-template-columns:1fr}
+  .split-image{min-height:280px}
+  .split-text{padding:3rem 2rem}
+}
+
+/* ─── Photo Band ─── */
+.photo-band{height:320px;position:relative;overflow:hidden}
+.photo-band img{width:100%;height:100%;object-fit:cover}
+.photo-band::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(27,42,74,.3) 100%)}
+
+/* ─── Navy Section ─── */
+.navy-section{background:var(--navy);color:var(--white);text-align:center}
+.navy-section p{color:rgba(255,255,255,.8)}
+.navy-section h2{color:var(--white)}
+.navy-section .overline{color:rgba(255,255,255,.45)}
+
+/* ─── Legacy Section (from production site) ─── */
+.legacy-section{background:var(--white);text-align:center}
+.legacy-section .overline{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--amber);margin-bottom:.75rem}
+
+/* ─── Form ─── */
+.form-group{margin-bottom:1.25rem}
+.form-label{display:block;font-size:.85rem;font-weight:600;color:var(--charcoal);margin-bottom:6px}
+.form-input,.form-textarea,.form-select{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:6px;font-family:var(--font-body);font-size:.9rem;color:var(--charcoal);background:var(--white);outline:none;transition:border-color .2s}
+.form-input:focus,.form-textarea:focus,.form-select:focus{border-color:var(--amber)}
+.form-textarea{min-height:120px;resize:vertical}
+
+/* ─── Footer ─── */
+.site-footer{background:var(--navy);padding:3.5rem 2rem 1.5rem}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2.5rem;margin-bottom:2.5rem}
+.footer-label{font-size:.75rem;font-weight:600;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.75rem}
+.footer-link{display:block;font-size:.85rem;color:rgba(255,255,255,.7);margin-bottom:6px;cursor:pointer;transition:color .15s}
+.footer-link:hover{color:var(--white)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:1.25rem;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.5rem}
+.footer-bottom span{font-size:.75rem;color:rgba(255,255,255,.4)}
+
+/* ─── Utility ─── */
+.overline{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-gray);margin-bottom:.75rem}
+.dedication{font-style:italic;font-size:.75rem;color:var(--mid-gray);text-align:center;padding:1rem 0 3rem}
+.divider{border:none;border-top:1px solid var(--border);margin:2rem 0}
+.hidden{display:none}
+
+/* ─── Page transitions ─── */
+.page{animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HEADER ═══════════════ -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <a class="wordmark" onclick="navigate('home')">CAVARIDGE</a>
+    <nav class="nav" id="desktop-nav">
+      <span class="nav-link" data-page="home" onclick="navigate('home')">Home</span>
+      <span class="nav-link" data-page="about" onclick="navigate('about')">About</span>
+      <div class="nav-dropdown">
+        <span class="nav-link">Divisions <svg class="chevron" width="10" height="6" viewBox="0 0 10 6"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="nav-dropdown-menu" id="divisions-dropdown"></div>
+      </div>
+      <span class="nav-link" data-page="contact" onclick="navigate('contact')">Contact</span>
+      <a class="btn btn-amber btn-sm" onclick="navigate('contact')">Get in Touch</a>
+    </nav>
+    <div class="mobile-toggle" id="mobile-toggle">
+      <a class="btn btn-amber btn-sm" onclick="navigate('contact')">Get in Touch</a>
+      <button class="hamburger" onclick="toggleMobile()" aria-label="Menu">
+        <svg id="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--charcoal)" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu"></div>
+</header>
+
+<!-- ═══════════════ MAIN ═══════════════ -->
+<main id="app"></main>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="site-footer">
+  <div style="max-width:var(--max-w);margin:0 auto">
+    <div class="footer-grid">
+      <div>
+        <span class="wordmark wordmark-white" style="font-size:1.3rem;letter-spacing:.15em" onclick="navigate('home')">CAVARIDGE</span>
+        <p style="font-size:.85rem;font-style:italic;color:rgba(255,255,255,.55);margin-top:.5rem">Built to operate.</p>
+      </div>
+      <div>
+        <p class="footer-label">Quick Links</p>
+        <span class="footer-link" onclick="navigate('about')">About</span>
+        <span class="footer-link" onclick="navigate('consulting')">Consulting</span>
+        <span class="footer-link" onclick="navigate('managed-services')">Managed Services</span>
+        <span class="footer-link" onclick="navigate('puppies')">Puppies</span>
+        <span class="footer-link" onclick="navigate('contact')">Contact</span>
+      </div>
+      <div>
+        <p class="footer-label">Contact</p>
+        <p style="font-size:.85rem;color:rgba(255,255,255,.7);line-height:1.8">
+          info@cavaridge.com<br>321.988.0088
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Cavaridge, LLC. All rights reserved.</span>
+      <div style="display:flex;gap:1.25rem">
+        <span style="font-size:.75rem;color:rgba(255,255,255,.4);cursor:pointer">Privacy Policy</span>
+        <span style="font-size:.75rem;color:rgba(255,255,255,.4);cursor:pointer">Terms</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ─── Data ───
+const DIVISIONS = [
+  { name:"Consulting", slug:"consulting",
+    img:"https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
+    desc:"Strategic advisory, fractional leadership, and expert witness services for MSPs and technology companies. Decades of operational experience, applied to your business." },
+  { name:"Managed Services", slug:"managed-services",
+    img:"https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
+    desc:"Proactive IT management, monitoring, and support for businesses that need reliability without building an internal team. Cavaridge Managed Services operates as your IT department." },
+  { name:"Apps", slug:"apps",
+    img:"https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
+    desc:"Custom application development and managed hosting. We build, deploy, and run the software your business depends on." },
+  { name:"Health", slug:"health",
+    img:"https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80",
+    desc:"Healthcare consulting services focused on operational improvement, compliance readiness, and technology strategy for healthcare organizations." },
+  { name:"Puppies", slug:"puppies",
+    img:"https://images.unsplash.com/photo-1583337130417-13104dec14a7?w=800&q=80",
+    desc:"Cavalier King Charles Spaniel breeding with a focus on health, temperament, and responsible placement. Every puppy is raised in our home." },
+  { name:"Farms", slug:"farms", comingSoon:true,
+    img:"https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=800&q=80",
+    desc:"Regulated agricultural cultivation and distribution, operated with full compliance and disciplined farming practices. Coming soon." },
+  { name:"Rentals", slug:"rentals",
+    img:"https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80",
+    desc:"Vacation rental properties managed with the same operational standards we apply across all Cavaridge divisions. Clean, well-maintained, and guest-ready." },
+  { name:"Properties", slug:"properties",
+    img:"https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
+    desc:"Real estate acquisition, investment, and management. Long-term value creation through disciplined property selection and hands-on management." },
+  { name:"Ranch", slug:"ranch",
+    img:"https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80",
+    desc:"The home base. Cavaridge Ranch is where the Posner family lives, and where many of our operations — from puppies to planning — begin." }
+];
+
+const HERO_IMAGES = {
+  home: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&q=80",
+  consulting: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1400&q=80",
+  "managed-services": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1400&q=80",
+  apps: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1400&q=80",
+  health: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1400&q=80",
+  puppies: "https://images.unsplash.com/photo-1583337130417-13104dec14a7?w=1400&q=80",
+  farms: "https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=1400&q=80",
+  rentals: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1400&q=80",
+  properties: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&q=80",
+  ranch: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1400&q=80"
+};
+
+const BODY_IMAGES = {
+  consulting: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&q=80",
+  "managed-services": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&q=80",
+  apps: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=80",
+  health: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=1200&q=80",
+  puppies: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1200&q=80",
+  farms: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1200&q=80",
+  rentals: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80",
+  properties: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80",
+  ranch: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1200&q=80"
+};
+
+// ─── SVG Icons ───
+const ICONS = {
+  growth: '<path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/>',
+  users: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  shield: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+  server: '<rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>',
+  helpdesk: '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
+  vendor: '<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>',
+  code: '<polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>',
+  cloud: '<path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>',
+  link: '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>',
+  heart: '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>',
+  home: '<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>',
+  check: '<polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>',
+  activity: '<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>',
+  clipboard: '<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>',
+  leaf: '<path d="M11 20A7 7 0 0 1 9.8 6.9C15.5 4.9 17 3.5 19 1c1 2 2 4.5 2 8 0 5.5-4.78 11-10 11z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>',
+  building: '<rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="9" y1="22" x2="9" y2="2"/><line x1="15" y1="22" x2="15" y2="2"/>',
+  map: '<polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/>'
+};
+
+function icon(name) {
+  return `<div class="service-icon"><svg viewBox="0 0 24 24">${ICONS[name]||ICONS.check}</svg></div>`;
+}
+
+// ─── Routing ───
+let currentPage = 'home';
+
+function navigate(slug) {
+  currentPage = slug;
+  window.location.hash = slug === 'home' ? '' : slug;
+  render();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  closeMobile();
+}
+
+function toggleMobile() {
+  const menu = document.getElementById('mobile-menu');
+  menu.classList.toggle('open');
+}
+function closeMobile() {
+  document.getElementById('mobile-menu').classList.remove('open');
+}
+
+// ─── Template Helpers ───
+function heroImage(slug, title, subtitle, ctaText, ctaSlug) {
+  return `
+    <section class="hero hero-image">
+      <img class="hero-bg" src="${HERO_IMAGES[slug]}" alt="${title}" loading="lazy">
+      <div class="hero-content">
+        <h1>${title}</h1>
+        <p>${subtitle}</p>
+        ${ctaText ? `<div style="margin-top:2rem"><a class="btn btn-amber" onclick="navigate('${ctaSlug||'contact'}')">${ctaText}</a></div>` : ''}
+      </div>
+    </section>`;
+}
+
+function serviceCard(ic, title, desc) {
+  return `<div class="service-block">${icon(ic)}<h3>${title}</h3><p>${desc}</p></div>`;
+}
+
+function bottomCTA(headline, body, btnText, btnSlug) {
+  return `
+    <section class="section navy-section">
+      <div class="container text-center">
+        <h2>${headline||'Ready to talk?'}</h2>
+        ${body ? `<p style="max-width:600px;margin:0 auto 2rem">${body}</p>` : '<div style="height:1rem"></div>'}
+        <a class="btn btn-amber" onclick="navigate('${btnSlug||'contact'}')">${btnText||'Get in Touch'}</a>
+      </div>
+    </section>`;
+}
+
+function photoBand(slug) {
+  return `<div class="photo-band"><img src="${BODY_IMAGES[slug]}" alt="" loading="lazy"></div>`;
+}
+
+// ─── Page Templates ───
+
+function pageHome() {
+  const cards = DIVISIONS.map(d => `
+    <div class="division-card" onclick="navigate('${d.slug}')">
+      <div class="division-card-img">
+        <img src="${d.img}" alt="${d.name}" loading="lazy">
+        ${d.comingSoon ? '<span style="position:absolute;top:12px;right:12px;background:var(--amber);color:var(--white);font-family:var(--font-body);font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:4px 10px;border-radius:4px">Coming Soon</span>' : ''}
+      </div>
+      <div class="division-card-body">
+        <h3>${d.name}${d.comingSoon ? ' <span style="font-family:var(--font-body);font-size:.7rem;font-weight:600;color:var(--amber);vertical-align:middle">(Coming Soon)</span>' : ''}</h3>
+        <p>${d.desc}</p>
+        <span class="card-link">Learn more &rarr;</span>
+      </div>
+    </div>`).join('');
+
+  return `
+    <section class="hero hero-image" style="min-height:560px">
+      <img class="hero-bg" src="${HERO_IMAGES.home}" alt="Cavaridge" loading="lazy">
+      <div class="hero-content">
+        <h1>One company. Nine divisions.<br>Built to operate.</h1>
+        <p>Cavaridge is a multi-division operating company with hands-on ownership across technology, health, real estate, agriculture, and lifestyle. We put one name behind everything we do.</p>
+        <div style="margin-top:2rem"><a class="btn btn-white" onclick="document.getElementById('divisions').scrollIntoView({behavior:'smooth'})">See Our Divisions</a></div>
+      </div>
+    </section>
+
+    <section id="divisions" class="section" style="background:var(--warm-white)">
+      <div style="max-width:var(--max-w);margin:0 auto">
+        <div class="divisions-grid">${cards}</div>
+      </div>
+    </section>
+
+    <section class="section text-center" style="background:var(--white)">
+      <div class="text-container">
+        <h2>Why one name behind everything?</h2>
+        <p style="font-size:1.05rem">Because accountability scales with reputation. When every division carries the Cavaridge name, there is no hiding behind a shell brand. We operate each business as if our name depends on it — because it does.</p>
+      </div>
+    </section>
+
+    <section class="section-sm text-center" style="background:var(--white)">
+      <div class="text-container">
+        <p class="overline" style="color:var(--amber)">A LEGACY OF ACCOUNTABILITY</p>
+        <h2>One owner's standard, applied everywhere.</h2>
+        <p>Whether it's a clinic, a network, a rental home, or a litter of puppies, Cavaridge holds each division to the same bar: clear expectations, disciplined operations, and direct accountability. If our name is on it, we stand behind it.</p>
+      </div>
+    </section>
+
+    ${bottomCTA('Ready to talk?', "Whether you need consulting, managed IT, a vacation rental, or a puppy — we are one conversation away.", 'Get in Touch')}`;
+}
+
+function pageAbout() {
+  return `
+    ${heroImage('home', 'Built to operate.', "Cavaridge, LLC is a multi-division company founded by Benjamin and Becca Posner. We build, manage, and grow businesses across technology, health, real estate, agriculture, and lifestyle — with direct ownership and operational accountability in every division.")}
+
+    <section class="section" style="background:var(--white)">
+      <div class="text-container">
+        <h2>Our Story</h2>
+        <p>Cavaridge started with a question: what if you ran every business in your portfolio like your name was on the door? For us, it is. Benjamin brings decades of experience in IT infrastructure, managed services, and technology consulting. Becca brings operational discipline, a sharp eye for detail, and the warmth that makes divisions like Puppies and Ranch feel personal. Together, we built Cavaridge as a holding company that actually operates — not one that acquires and neglects.</p>
+        <p>Every division shares the Cavaridge name because every division meets the same standard: direct communication, clean operations, and a long-term view. We see ourselves as stewards — of the businesses we build, the people we serve, and the land we work. We do not flip businesses. We build them to run.</p>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--warm-white)">
+      <div style="max-width:var(--max-w);margin:0 auto">
+        <div class="text-center"><h2>What We Believe</h2></div>
+        <div class="beliefs-grid">
+          <div class="belief-card"><div class="belief-bar"></div><h3>Owner-Operated</h3><p>Every Cavaridge division has direct ownership involvement. We do not delegate accountability to middle management layers that do not exist yet.</p></div>
+          <div class="belief-card"><div class="belief-bar"></div><h3>One Standard</h3><p>The same operational rigor that runs our managed services practice runs our puppy program. Systems, documentation, and follow-through apply everywhere.</p></div>
+          <div class="belief-card"><div class="belief-bar"></div><h3>Long View</h3><p>We do not optimize for quick exits. We build divisions that compound value over years — for our clients, our tenants, our families, and the generations that follow.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-sm text-center" style="background:var(--warm-white)">
+      <div class="text-container">
+        <h2>Let's work together.</h2>
+        <p>We are always open to conversations about consulting, partnerships, property, or puppies.</p>
+        <div style="margin-top:1.5rem"><a class="btn btn-amber" onclick="navigate('contact')">Get in Touch</a></div>
+      </div>
+    </section>
+    <div class="dedication">L'dor v'dor.</div>`;
+}
+
+function pageConsulting() {
+  return `
+    ${heroImage('consulting', 'Cavaridge Consulting', 'Strategic advisory, fractional leadership, and expert witness services for MSPs, technology companies, and organizations navigating complex IT decisions.')}
+    <section class="section" style="background:var(--white)">
+      <div style="max-width:var(--max-w);margin:0 auto">
+        <h2>What We Do</h2>
+        <div class="services-grid">
+          ${serviceCard('growth', 'MSP Growth Advisory', 'We help managed service providers grow revenue, improve operations, and build scalable delivery models. Our advice comes from years of building and running MSPs — not from theory.')}
+          ${serviceCard('users', 'Fractional Leadership', 'Need a CTO, CIO, or VP of IT without the full-time commitment? Cavaridge Consulting provides experienced technology leaders on a fractional basis — embedded in your team, focused on your outcomes.')}
+          ${serviceCard('shield', 'Expert Witness Services', 'When technology disputes require credible, experienced testimony, Cavaridge Consulting provides expert witness services grounded in real-world operational experience across IT infrastructure, managed services, and cybersecurity.')}
+        </div>
+      </div>
+    </section>
+    ${photoBand('consulting')}
+    <section class="section" style="background:var(--warm-white)">
+      <div class="text-container">
+        <h2>How We Work</h2>
+        <p>Every engagement starts with a scoped conversation. We define the problem, agree on deliverables, and work under a clear Statement of Work with milestones and regular check-ins. No retainer padding. No ambiguous scope. You know what you are getting before we start.</p>
+        <div style="margin-top:2rem"><a class="btn btn-amber" onclick="navigate('contact')">Book a Consultation</a></div>
+      </div>
+    </section>`;
+}
+
+function pageManagedServices() {
+  return `
+    ${heroImage('managed-services', 'Cavaridge Managed Services', 'Proactive IT management, monitoring, and support for businesses that need reliable technology without building an internal IT team.')}
+    <section class="section" style="background:var(--white)">
+      <div style="max-width:var(--max-w);margin:0 auto">
+        <h2>What We Manage</h2>
+        <div class="services-grid">
+          ${serviceCard('server', 'Infrastructure Management', 'Servers, networks, firewalls, cloud environments — we monitor, maintain, and manage the technology your business depends on. Proactive maintenance prevents problems before they become outages.')}
+          ${serviceCard('helpdesk', 'End-User Support', 'Your team gets a real help desk with real people. We handle tickets, troubleshoot issues, and keep your staff productive. Response times and escalation paths are defined in your service agreement.')}
+          ${serviceCard('shield', 'Security &amp; Compliance', 'Endpoint protection, patch management, backup verification, and security awareness. We build security into operations rather than bolting it on afterward.')}
+          ${serviceCard('vendor', 'Vendor Management', 'We manage your technology vendor relationships — ISPs, SaaS providers, hardware suppliers — so you deal with one point of contact instead of twelve.')}
+        </div>
+      </div>
+    </section>
+    ${photoBand('managed-services')}
+    <section class="section" style="background:var(--warm-white)">
+      <div class="text-container">
+        <h2>How It Works</h2>
+        <p>Cavaridge Managed Services operates under a predictable monthly agreement. We start with a technology assessment, define the scope of management, and deliver a service plan with clear SLAs. You get regular reporting, documented systems, and a team that treats your environment like their own.</p>
+        <div style="margin-top:2rem"><a class="btn btn-amber" onclick="navigate('contact')">Get a Technology Assessment</a></div>
+      </div>
+    </section>`;
+}
+
+function pageApps() {
+  return `
+    ${heroImage('apps', 'Cavaridge Apps', 'Custom application development and managed hosting. We build, deploy, and run the software your business depends on.')}
+    <section class="section" style="background:var(--white)">
+      <div style="max-width:var(--max-w);margin:0 auto">
+        <h2>Services</h2>
+        <div class="services-grid">
+          ${serviceCard('code', 'Custom Application Development', 'Line-of-business tools, internal dashboards, workflow automation, and client-facing applications. Built to your requirements, owned by you, and maintained by us.')}
+          ${serviceCard('cloud', 'Managed Hosting', 'Reliable application hosting with monitoring, patching, backups, and uptime management. We run the infrastructure so you can focus on the business.')}
+          ${serviceCard('link', 'Integration &amp; API Development', 'Connect the systems you already use. CRM to billing, EHR to scheduling, field tools to back office. We build the bridges between your platforms.')}
+        </div>
+      </div>
+    </section>
+    ${photoBand('apps')}
+    <section class="section" style="background:var(--warm-white)">
+      <div class="text-container">
+        <p>Cavaridge Apps handles the software side of your operation. Whether you need a custom tool built from scratch, an existing application hosted and managed, or systems connected through APIs — this is the division to call.</p>
+        <div style="margin-top:2rem"><a class="btn btn-amber" onclick="navigate('contact')">Start a Project</a></div>
+      </div>
+    </section>`;
+}
+
+function pageHealth() {
+  return `
+    ${heroImage('health', 'Cavaridge Health', 'Healthcare consulting focused on operational improvement, compliance readiness, and technology strategy for healthcare organizations.')}
+    <section class="section" style="background:var(--white)">
+      <div style="max-width:var(--max-w);margin:0 auto">
+        <h2>What We Do</h2>
+        <div class="services-grid">
+          ${serviceCard('activity', 'Operational Consulting', 'We help healthcare organizations streamline workflows, reduce administrative burden, and improve the systems that support patient care. Our focus is on practical improvements that staff will actually adopt.')}
+          ${serviceCard('clipboard', 'Compliance Readiness', 'Preparing for audits, accreditation, or regulatory changes requires organized documentation and clear processes. We help healthcare organizations get ready — not just on paper, but operationally.')}
+          ${serviceCard('server', 'Technology Strategy', 'EHR optimization, telehealth implementation, data management, and IT infrastructure planning for healthcare environments. We bridge the gap between clinical needs and technical execution.')}
+        </div>
+      </div>
+    </section>
+    ${photoBand('health')}
+    <section class="section" style="background:var(--warm-white)">
+      <div class="text-container">
+        <p>Cavaridge Health brings the same operational discipline we apply across all Cavaridge divisions to the specific challenges of healthcare. We do not make medical claims or clinical recommendations — we improve the business and technology systems that support the people who do.</p>
+        <div style="margin-top:2rem"><a class="btn btn-amber" onclick="navigate('contact')">Schedule a Conversation</a></div>
+      </div>
+    </section>`;
+}
+
+function pagePuppies() {
+  return `
+    ${heroImage('puppies', 'Cavaridge Puppies', 'Cavalier King Charles Spaniel breeding with a focus on health, temperament, and responsible placement. Every puppy is raised in our home.')}
+    <section class="section" style="background:var(--white)">
+      <div style="max-width:var(--max-w);margin:0 auto">
+        <h2>Our Approach</h2>
+        <div class="services-grid">
+          ${serviceCard('heart', 'Health First', 'We prioritize the health of our breeding dogs and their puppies. Health testing, veterinary care, and responsible breeding practices are non-negotiable.')}
+          ${serviceCard('home', 'Home Raised', 'Our puppies are born and raised in our home at Cavaridge Ranch — not in a kennel or facility. They are socialized with people, other dogs, and everyday household activity from day one.')}
+          ${serviceCard('check', 'Responsible Placement', 'We screen every prospective family to ensure a good match. Our goal is not to sell puppies — it is to place them in homes where they will be loved and well cared for.')}
+        </div>
+      </div>
+    </section>
+    ${photoBand('puppies')}
+    <section class="section" style="background:var(--warm-white)">
+      <div class="text-container">
+        <h2>What to Expect</h2>
+        <p>If you are interested in a Cavalier King Charles Spaniel from Cavaridge Puppies, the process starts with a conversation. We will learn about your home, your family, and your expectations. If we have puppies available or an upcoming litter, we will walk you through timing, health documentation, and what to prepare. There is no pressure and no rush.</p>
+        <div style="margin-top:2rem"><a class="btn btn-amber" onclick="navigate('contact')">Inquire About Puppies</a></div>
+      </div>
+    </section>`;
+}
+
+function pageFarms() {
+  return `
+    ${heroImage('farms', 'Cavaridge Farms', 'Regulated agricultural cultivation and distribution, operated with full compliance and disciplined farming practices.')}
+    <section class="section" style="background:var(--white)">
+      <div style="max-width:var(--max-w);margin:0 auto;text-align:center">
+        <div style="display:inline-block;background:var(--amber);color:var(--white);font-family:var(--font-body);font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:6px 16px;border-radius:4px;margin-bottom:2rem">Coming Soon</div>
+        <h2>This division is in development.</h2>
+        <p style="max-width:600px;margin:1rem auto 0;font-size:1.05rem">Cavaridge Farms will bring the same operational rigor that defines every Cavaridge division to regulated agriculture. We are building this division with compliance, quality, and long-term sustainability as the foundation.</p>
+        <p style="max-width:600px;margin:1.5rem auto 0">If you would like to learn more about Cavaridge Farms or discuss partnership opportunities, get in touch.</p>
+        <div style="margin-top:2rem"><a class="btn btn-amber" onclick="navigate('contact')">Contact Us</a></div>
+      </div>
+    </section>
+    ${photoBand('farms')}`;
+}
+
+function pageRentals() {
+  return `
+    ${heroImage('rentals', 'Cavaridge Rentals', 'Vacation rental properties managed with the same operational standards we apply across every Cavaridge division.')}
+    <section class="section" style="background:var(--white)">
+      <div style="max-width:var(--max-w);margin:0 auto">
+        <h2>What We Offer</h2>
+        <div class="services-grid">
+          ${serviceCard('home', 'Quality Properties', 'Every rental in our portfolio meets a clear standard: clean, well-maintained, thoughtfully furnished, and guest-ready. We do not list properties we would not stay in ourselves.')}
+          ${serviceCard('helpdesk', 'Responsive Management', 'Check-in issues, maintenance requests, and guest communication are handled promptly. We manage our rentals directly — there is no third-party management company adding a layer between you and a resolution.')}
+          ${serviceCard('check', 'Transparent Listings', 'What you see is what you get. Accurate photos, honest descriptions, and clear house rules. No surprises on arrival.')}
+        </div>
+      </div>
+    </section>
+    ${photoBand('rentals')}
+    <section class="section" style="background:var(--warm-white)">
+      <div class="text-container">
+        <p>Cavaridge Rentals is growing. As we add properties to our portfolio, each one will be listed on this page and on major booking platforms. If you are interested in our current availability or upcoming properties, reach out.</p>
+        <div style="margin-top:2rem"><a class="btn btn-amber" onclick="navigate('contact')">Check Availability</a></div>
+      </div>
+    </section>`;
+}
+
+function pageProperties() {
+  return `
+    ${heroImage('properties', 'Cavaridge Properties', 'Real estate acquisition, investment, and management. Long-term value creation through disciplined property selection and hands-on management.')}
+    <section class="section" style="background:var(--white)">
+      <div style="max-width:var(--max-w);margin:0 auto">
+        <h2>Our Approach</h2>
+        <div class="services-grid">
+          ${serviceCard('map', 'Selective Acquisition', 'We do not chase volume. Every property in the Cavaridge portfolio is selected based on long-term value potential, location fundamentals, and our ability to manage it directly.')}
+          ${serviceCard('building', 'Active Management', 'We manage what we own. Maintenance, tenant relations, and property improvements are handled with the same operational standards we apply across all Cavaridge divisions.')}
+          ${serviceCard('growth', 'Long-Term Orientation', 'Our real estate strategy is built on holding, improving, and compounding value — not flipping. We buy with the intention to own.')}
+        </div>
+      </div>
+    </section>
+    ${photoBand('properties')}
+    <section class="section-sm" style="background:var(--warm-white)">
+      <div class="text-container text-center">
+        <div style="margin-top:1rem"><a class="btn btn-amber" onclick="navigate('contact')">Discuss Opportunities</a></div>
+      </div>
+    </section>`;
+}
+
+function pageRanch() {
+  return `
+    ${heroImage('ranch', 'Cavaridge Ranch', 'Home base. Cavaridge Ranch is where the Posner family lives and where many of our operations begin.')}
+    <section class="section" style="background:var(--white)">
+      <div class="text-container">
+        <p>Cavaridge Ranch is more than a residence — it is the physical center of the Cavaridge operation. Our puppies are born and raised here. Our earliest business plans were written here. The name Cavaridge itself comes from a combination of the Cavalier breed we love and the ridge where we built our life.</p>
+        <p>The Ranch page is not a division in the traditional business sense. It exists because Cavaridge is, at its core, a family operation — and this is where that family lives and works.</p>
+      </div>
+    </section>
+    ${photoBand('ranch')}`;
+}
+
+function pageContact() {
+  const options = ['','Consulting','Managed Services','Apps','Health','Puppies','Farms','Rentals','Properties','General Inquiry'];
+  return `
+    <section class="hero" style="background:var(--warm-white)">
+      <h1>Get in Touch</h1>
+      <p style="color:var(--mid-gray)">Whether you have a question about a specific division or want to explore working together, start here.</p>
+    </section>
+    <section class="section-sm" style="background:var(--white)">
+      <div style="max-width:540px;margin:0 auto">
+        <form id="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-group"><label class="form-label">Name *</label><input class="form-input" required></div>
+          <div class="form-group"><label class="form-label">Email *</label><input class="form-input" type="email" required></div>
+          <div class="form-group"><label class="form-label">Phone</label><input class="form-input" type="tel"></div>
+          <div class="form-group"><label class="form-label">Division of Interest</label>
+            <select class="form-select">${options.map(o => `<option value="${o}">${o || 'Select a division...'}</option>`).join('')}</select>
+          </div>
+          <div class="form-group"><label class="form-label">Message *</label><textarea class="form-textarea" required></textarea></div>
+          <button type="submit" class="btn btn-amber btn-block">Send Message</button>
+        </form>
+        <div style="margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--border);text-align:center">
+          <p style="font-size:.9rem"><strong>Email:</strong> info@cavaridge.com</p>
+          <p style="font-size:.9rem"><strong>Phone:</strong> 321.988.0088</p>
+        </div>
+      </div>
+    </section>`;
+}
+
+function handleSubmit(e) {
+  e.preventDefault();
+  document.getElementById('app').innerHTML = `
+    <section class="hero" style="background:var(--warm-white);min-height:50vh;display:flex;align-items:center;justify-content:center">
+      <div><h1>Thank you.</h1><p style="color:var(--mid-gray)">Your message has been received. We will be in touch shortly.</p>
+      <div style="margin-top:2rem"><a class="btn btn-amber" onclick="navigate('home')">Back to Home</a></div></div>
+    </section>`;
+}
+
+// ─── Router ───
+const ROUTES = {
+  home: pageHome, about: pageAbout, consulting: pageConsulting,
+  'managed-services': pageManagedServices, apps: pageApps, health: pageHealth,
+  puppies: pagePuppies, farms: pageFarms, rentals: pageRentals,
+  properties: pageProperties, ranch: pageRanch, contact: pageContact
+};
+
+function render() {
+  const page = ROUTES[currentPage] || pageHome;
+  document.getElementById('app').innerHTML = `<div class="page">${page()}</div>`;
+  updateNav();
+}
+
+function updateNav() {
+  document.querySelectorAll('.nav-link[data-page]').forEach(el => {
+    el.classList.toggle('active', el.dataset.page === currentPage);
+  });
+}
+
+// ─── Init ───
+function init() {
+  // Build dropdown
+  const dd = document.getElementById('divisions-dropdown');
+  dd.innerHTML = DIVISIONS.map(d =>
+    `<span class="dropdown-item" data-slug="${d.slug}" onclick="navigate('${d.slug}')">${d.name}</span>`
+  ).join('');
+
+  // Build mobile menu
+  const mm = document.getElementById('mobile-menu');
+  const allLinks = [{name:'Home',slug:'home'},{name:'About',slug:'about'},...DIVISIONS,{name:'Contact',slug:'contact'}];
+  mm.innerHTML = allLinks.map(l => `<div class="mobile-link" data-slug="${l.slug}" onclick="navigate('${l.slug}')">${l.name}</div>`).join('');
+
+  // Scroll listener
+  window.addEventListener('scroll', () => {
+    document.getElementById('site-header').classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  // Hash routing
+  const hash = window.location.hash.replace('#','');
+  if (hash && ROUTES[hash]) currentPage = hash;
+  window.addEventListener('hashchange', () => {
+    const h = window.location.hash.replace('#','');
+    if (h && ROUTES[h]) { currentPage = h; render(); }
+    else if (!h) { currentPage = 'home'; render(); }
+  });
+
+  render();
+}
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>
