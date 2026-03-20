@@ -230,7 +230,7 @@ p:last-child{margin-bottom:0}
       <span>&copy; 2026 Cavaridge, LLC. All rights reserved.</span>
       <div style="display:flex;gap:1.25rem">
         <span style="font-size:.75rem;color:rgba(255,255,255,.4);cursor:pointer" onclick="navigate('privacy-policy')">Privacy Policy</span>
-        <span style="font-size:.75rem;color:rgba(255,255,255,.4);cursor:pointer">Terms</span>
+        <span style="font-size:.75rem;color:rgba(255,255,255,.4);cursor:pointer" onclick="navigate('terms')">Terms</span>
       </div>
     </div>
   </div>
@@ -754,13 +754,81 @@ function pagePrivacyPolicy() {
     </section>`;
 }
 
+function pageTerms() {
+  return `
+    <section class="section" style="background:var(--navy);color:var(--white);text-align:center;padding:4rem 2rem">
+      <h1>Terms of Service</h1>
+      <p style="color:rgba(255,255,255,.7)">Last updated: March 20, 2026</p>
+    </section>
+
+    <section class="section" style="background:var(--white)">
+      <div class="text-container">
+        <p>Welcome to Cavaridge, LLC ("Cavaridge," "we," "us," or "our"). By accessing or using our website and services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our website or services.</p>
+
+        <h2 style="margin-top:2.5rem">1. Services Overview</h2>
+        <p>Cavaridge is a multi-division operating company with divisions including Consulting, Managed Services, Apps, Health, Puppies, Farms, Rentals, Properties, and Ranch. Each division may have additional terms or agreements specific to the services it provides. In the event of a conflict, division-specific terms will govern.</p>
+
+        <h2 style="margin-top:2.5rem">2. Use of the Website</h2>
+        <p>You agree to use this website only for lawful purposes and in a manner that does not infringe upon or restrict the rights of others. You may not:</p>
+        <ul style="margin-bottom:1rem;padding-left:1.5rem;line-height:2">
+          <li>Use the website in any way that violates applicable laws or regulations</li>
+          <li>Attempt to gain unauthorized access to any part of the website or its systems</li>
+          <li>Transmit any harmful, offensive, or disruptive content</li>
+          <li>Use automated tools to scrape, crawl, or extract data without prior written consent</li>
+        </ul>
+
+        <h2 style="margin-top:2.5rem">3. Intellectual Property</h2>
+        <p>All content on this website — including text, graphics, logos, images, and software — is the property of Cavaridge, LLC or its licensors and is protected by applicable intellectual property laws. You may not reproduce, distribute, modify, or create derivative works from any content without our prior written permission.</p>
+
+        <h2 style="margin-top:2.5rem">4. Service Engagements</h2>
+        <p>Any consulting, managed services, application development, or other professional engagements entered into with Cavaridge will be governed by a separate written agreement. Nothing on this website constitutes a binding offer, contract, or guarantee of services.</p>
+
+        <h2 style="margin-top:2.5rem">5. Health Division Disclaimer</h2>
+        <p>Information provided through Cavaridge Health is for general informational purposes only and does not constitute medical advice, diagnosis, or treatment. Always consult a qualified healthcare provider for medical concerns.</p>
+
+        <h2 style="margin-top:2.5rem">6. Puppies Division</h2>
+        <p>All puppy placements through Cavaridge Puppies are subject to a separate adoption agreement. We reserve the right to decline placement at our sole discretion. Information about available puppies on this website is subject to change without notice.</p>
+
+        <h2 style="margin-top:2.5rem">7. Rental &amp; Property Services</h2>
+        <p>Vacation rentals through Cavaridge Rentals and real estate services through Cavaridge Properties are governed by their respective rental agreements, lease terms, or purchase contracts. Listings and availability shown on this website are for informational purposes and may not reflect real-time availability.</p>
+
+        <h2 style="margin-top:2.5rem">8. Limitation of Liability</h2>
+        <p>To the fullest extent permitted by law, Cavaridge, LLC and its officers, directors, employees, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the website or services, even if we have been advised of the possibility of such damages.</p>
+        <p>Our total liability for any claim arising from your use of the website or services shall not exceed the amount you paid to Cavaridge, if any, during the twelve (12) months preceding the claim.</p>
+
+        <h2 style="margin-top:2.5rem">9. Disclaimer of Warranties</h2>
+        <p>This website and its content are provided "as is" and "as available" without warranties of any kind, whether express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
+
+        <h2 style="margin-top:2.5rem">10. Indemnification</h2>
+        <p>You agree to indemnify, defend, and hold harmless Cavaridge, LLC and its affiliates from any claims, liabilities, damages, losses, or expenses (including reasonable attorneys' fees) arising from your use of the website, violation of these terms, or infringement of any third-party rights.</p>
+
+        <h2 style="margin-top:2.5rem">11. Third-Party Links</h2>
+        <p>Our website may contain links to third-party websites or services. We are not responsible for the content, accuracy, or practices of those sites. Inclusion of any link does not imply endorsement by Cavaridge.</p>
+
+        <h2 style="margin-top:2.5rem">12. Governing Law</h2>
+        <p>These Terms of Service shall be governed by and construed in accordance with the laws of the State of Florida, without regard to its conflict of law provisions. Any disputes arising under these terms shall be resolved in the courts located in Brevard County, Florida.</p>
+
+        <h2 style="margin-top:2.5rem">13. Changes to These Terms</h2>
+        <p>We reserve the right to update or modify these Terms of Service at any time. Changes will be posted on this page with an updated effective date. Your continued use of the website after any changes constitutes acceptance of the revised terms.</p>
+
+        <h2 style="margin-top:2.5rem">14. Contact Us</h2>
+        <p>If you have questions about these Terms of Service, please contact us:</p>
+        <p style="margin-top:.5rem">
+          <strong>Cavaridge, LLC</strong><br>
+          Email: info@cavaridge.com<br>
+          Phone: 321.988.0088
+        </p>
+      </div>
+    </section>`;
+}
+
 // ─── Router ───
 const ROUTES = {
   home: pageHome, about: pageAbout, consulting: pageConsulting,
   'managed-services': pageManagedServices, apps: pageApps, health: pageHealth,
   puppies: pagePuppies, farms: pageFarms, rentals: pageRentals,
   properties: pageProperties, ranch: pageRanch, contact: pageContact,
-  'privacy-policy': pagePrivacyPolicy
+  'privacy-policy': pagePrivacyPolicy, terms: pageTerms
 };
 
 function render() {
