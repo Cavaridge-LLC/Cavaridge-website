@@ -248,7 +248,7 @@ const DIVISIONS = [
     img:"https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80",
     desc:"Healthcare consulting services focused on operational improvement, compliance readiness, and technology strategy for healthcare organizations." },
   { name:"Puppies", slug:"puppies",
-    img:"https://images.unsplash.com/photo-1683034768125-e0e776701ef1?w=800&q=80",
+    img:"https://images.unsplash.com/photo-1583337130417-13104dec14a7?w=800&q=80",
     desc:"Cavalier King Charles Spaniel breeding with a focus on health, temperament, and responsible placement. Every puppy is raised in our home." },
   { name:"Farms", slug:"farms", comingSoon:true,
     img:"https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=800&q=80",
@@ -261,7 +261,7 @@ const DIVISIONS = [
     desc:"Real estate acquisition, investment, and management. Long-term value creation through disciplined property selection and hands-on management." },
   { name:"Ranch", slug:"ranch",
     img:"https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80",
-    desc:"The home base. Cavaridge Ranch is where the members and family of Cavaridge Trust live, and where many of our operations — from puppies to planning — begin." }
+    desc:"The home base. Cavaridge Ranch is where the Posner family lives, and where many of our operations — from puppies to planning — begin." }
 ];
 
 const HERO_IMAGES = {
@@ -270,7 +270,7 @@ const HERO_IMAGES = {
   "managed-services": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1400&q=80",
   apps: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1400&q=80",
   health: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1400&q=80",
-  puppies: "https://images.unsplash.com/photo-1751921933740-1a5f5109730e?w=1400&q=80",
+  puppies: "https://images.unsplash.com/photo-1583337130417-13104dec14a7?w=1400&q=80",
   farms: "https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=1400&q=80",
   rentals: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1400&q=80",
   properties: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&q=80",
@@ -282,7 +282,7 @@ const BODY_IMAGES = {
   "managed-services": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&q=80",
   apps: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=80",
   health: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=1200&q=80",
-  puppies: "https://images.unsplash.com/photo-1617129724623-84f1d2fd78f3?w=1200&q=80",
+  puppies: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1200&q=80",
   farms: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1200&q=80",
   rentals: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80",
   properties: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80",
@@ -417,12 +417,12 @@ function pageHome() {
 
 function pageAbout() {
   return `
-    ${heroImage('home', 'Built to operate.', "Cavaridge, LLC is a multi-division company founded by the members and family of Cavaridge Trust. We build, manage, and grow businesses across technology, health, real estate, agriculture, and lifestyle — with direct ownership and operational accountability in every division.")}
+    ${heroImage('home', 'Built to operate.', "Cavaridge, LLC is a multi-division company founded by Benjamin and Becca Posner. We build, manage, and grow businesses across technology, health, real estate, agriculture, and lifestyle — with direct ownership and operational accountability in every division.")}
 
     <section class="section" style="background:var(--white)">
       <div class="text-container">
         <h2>Our Story</h2>
-        <p>Cavaridge started with a question: what if you ran every business in your portfolio like your name was on the door? For us, it is. Our leadership brings decades of experience in IT infrastructure, managed services, and technology consulting — paired with operational discipline, a sharp eye for detail, and the warmth that makes divisions like Puppies and Ranch feel personal. Together, we built Cavaridge as a holding company that actually operates — not one that acquires and neglects.</p>
+        <p>Cavaridge started with a question: what if you ran every business in your portfolio like your name was on the door? For us, it is. Benjamin brings decades of experience in IT infrastructure, managed services, and technology consulting. Becca brings operational discipline, a sharp eye for detail, and the warmth that makes divisions like Puppies and Ranch feel personal. Together, we built Cavaridge as a holding company that actually operates — not one that acquires and neglects.</p>
         <p>Every division shares the Cavaridge name because every division meets the same standard: direct communication, clean operations, and a long-term view. We see ourselves as stewards — of the businesses we build, the people we serve, and the land we work. We do not flip businesses. We build them to run.</p>
       </div>
     </section>
@@ -622,7 +622,7 @@ function pageProperties() {
 
 function pageRanch() {
   return `
-    ${heroImage('ranch', 'Cavaridge Ranch', 'Home base. Cavaridge Ranch is where the members and family of Cavaridge Trust live and where many of our operations begin.')}
+    ${heroImage('ranch', 'Cavaridge Ranch', 'Home base. Cavaridge Ranch is where the Posner family lives and where many of our operations begin.')}
     <section class="section" style="background:var(--white)">
       <div class="text-container">
         <p>Cavaridge Ranch is more than a residence — it is the physical center of the Cavaridge operation. Our puppies are born and raised here. Our earliest business plans were written here. The name Cavaridge itself comes from a combination of the Cavalier breed we love and the ridge where we built our life.</p>
@@ -642,15 +642,14 @@ function pageContact() {
     <section class="section-sm" style="background:var(--white)">
       <div style="max-width:540px;margin:0 auto">
         <form id="contact-form" onsubmit="handleSubmit(event)">
-          <div class="form-group"><label class="form-label">Name *</label><input class="form-input" name="name" required></div>
-          <div class="form-group"><label class="form-label">Email *</label><input class="form-input" name="email" type="email" required></div>
-          <div class="form-group"><label class="form-label">Phone</label><input class="form-input" name="phone" type="tel"></div>
+          <div class="form-group"><label class="form-label">Name *</label><input class="form-input" required></div>
+          <div class="form-group"><label class="form-label">Email *</label><input class="form-input" type="email" required></div>
+          <div class="form-group"><label class="form-label">Phone</label><input class="form-input" type="tel"></div>
           <div class="form-group"><label class="form-label">Division of Interest</label>
-            <select class="form-select" name="division">${options.map(o => `<option value="${o}">${o || 'Select a division...'}</option>`).join('')}</select>
+            <select class="form-select">${options.map(o => `<option value="${o}">${o || 'Select a division...'}</option>`).join('')}</select>
           </div>
-          <div class="form-group"><label class="form-label">Message *</label><textarea class="form-textarea" name="message" required></textarea></div>
-          <div id="form-error" style="display:none;background:#FEF2F2;color:#991B1B;padding:12px 16px;border-radius:6px;font-size:.85rem;margin-bottom:1rem"></div>
-          <button type="submit" id="submit-btn" class="btn btn-amber btn-block">Send Message</button>
+          <div class="form-group"><label class="form-label">Message *</label><textarea class="form-textarea" required></textarea></div>
+          <button type="submit" class="btn btn-amber btn-block">Send Message</button>
         </form>
         <div style="margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--border);text-align:center">
           <p style="font-size:.9rem"><strong>Email:</strong> info@cavaridge.com</p>
@@ -660,77 +659,12 @@ function pageContact() {
     </section>`;
 }
 
-// ─── Form Submission ───
-// CONFIGURE: Replace this URL with your Google Apps Script web app URL or Formspree endpoint.
-// Google Apps Script: https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec
-// Formspree:         https://formspree.io/f/YOUR_FORM_ID
-const FORM_ENDPOINT = '__FORM_ENDPOINT__';
-
-async function handleSubmit(e) {
+function handleSubmit(e) {
   e.preventDefault();
-  const form = e.target;
-  const btn = document.getElementById('submit-btn');
-  const errEl = document.getElementById('form-error');
-  errEl.style.display = 'none';
-
-  // Collect form data
-  const data = Object.fromEntries(new FormData(form));
-  data._subject = 'Cavaridge.com Contact: ' + (data.division || 'General');
-  data._timestamp = new Date().toLocaleString('en-US', { timeZone: 'America/New_York' });
-
-  // Loading state
-  btn.disabled = true;
-  btn.textContent = 'Sending...';
-  btn.style.opacity = '0.6';
-
-  // If endpoint not configured, use mailto fallback
-  if (FORM_ENDPOINT === '__FORM_ENDPOINT__') {
-    const subject = encodeURIComponent(data._subject);
-    const body = encodeURIComponent(
-      'Name: ' + data.name + '\\n' +
-      'Email: ' + data.email + '\\n' +
-      'Phone: ' + (data.phone || 'Not provided') + '\\n' +
-      'Division: ' + (data.division || 'Not specified') + '\\n\\n' +
-      'Message:\\n' + data.message
-    );
-    window.location.href = 'mailto:info@cavaridge.com?subject=' + subject + '&body=' + body;
-    // Show success after brief delay (mail client will open)
-    setTimeout(() => showSuccess(), 500);
-    return;
-  }
-
-  try {
-    const res = await fetch(FORM_ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(data)
-    });
-
-    if (res.ok || res.redirected) {
-      showSuccess();
-    } else {
-      throw new Error('Server returned ' + res.status);
-    }
-  } catch (err) {
-    errEl.textContent = 'Something went wrong. Please email us directly at info@cavaridge.com or call 321.988.0088.';
-    errEl.style.display = 'block';
-    btn.disabled = false;
-    btn.textContent = 'Send Message';
-    btn.style.opacity = '1';
-  }
-}
-
-function showSuccess() {
   document.getElementById('app').innerHTML = `
     <section class="hero" style="background:var(--warm-white);min-height:50vh;display:flex;align-items:center;justify-content:center">
-      <div style="text-align:center">
-        <div style="width:64px;height:64px;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-        <h1>Thank you.</h1>
-        <p style="color:var(--mid-gray);margin-top:.75rem">Your message has been received. We will be in touch shortly.</p>
-        <div style="margin-top:2rem"><a class="btn btn-amber" onclick="navigate('home')">Back to Home</a></div>
-      </div>
+      <div><h1>Thank you.</h1><p style="color:var(--mid-gray)">Your message has been received. We will be in touch shortly.</p>
+      <div style="margin-top:2rem"><a class="btn btn-amber" onclick="navigate('home')">Back to Home</a></div></div>
     </section>`;
 }
 
