@@ -274,7 +274,7 @@ const HERO_IMAGES = {
   "managed-services": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1400&q=80",
   apps: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1400&q=80",
   health: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1400&q=80",
-  puppies: "https://images.unsplash.com/photo-1613928521908-24ccf17a1707?w=1400&q=80",
+  puppies: "https://images.unsplash.com/photo-1617129724623-84f1d2fd78f3?w=1400&h=600&fit=crop&crop=faces&q=80",
   farms: "https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=1400&q=80",
   rentals: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1400&q=80",
   properties: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&q=80",
@@ -286,7 +286,7 @@ const BODY_IMAGES = {
   "managed-services": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&q=80",
   apps: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=80",
   health: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=1200&q=80",
-  puppies: "https://images.unsplash.com/photo-1544229173-e8173ff71985?w=1200&q=80",
+  puppies: "https://images.unsplash.com/photo-1503951164464-cfc904b89299?w=1200&q=80",
   farms: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1200&q=80",
   rentals: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80",
   properties: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80",
@@ -341,7 +341,7 @@ function closeMobile() {
 function heroImage(slug, title, subtitle, ctaText, ctaSlug) {
   return `
     <section class="hero hero-image">
-      <img class="hero-bg" src="${HERO_IMAGES[slug]}" alt="${title}" loading="lazy">
+      <img class="hero-bg" src="${HERO_IMAGES[slug]}" alt="${title}" loading="lazy" >
       <div class="hero-content">
         <h1>${title}</h1>
         <p>${subtitle}</p>
