@@ -249,7 +249,7 @@ const DIVISIONS = [
     desc:"Proactive IT management, monitoring, and support for businesses that need reliability without building an internal team. Cavaridge Managed Services operates as your IT department." },
   { name:"Apps", slug:"apps",
     img:"https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
-    desc:"The AI-native operating system for managed service providers. 21 integrated apps for operations, security, compliance, and healthcare IT — powered by Cavaridge AI." },
+    desc:"The AI-native operating system for MSPs. 21 integrated apps for operations, security, compliance, and healthcare — all powered by Cavaridge AI." },
   { name:"Health", slug:"health",
     img:"https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80",
     desc:"Healthcare consulting services focused on operational improvement, compliance readiness, and technology strategy for healthcare organizations." },
@@ -503,53 +503,111 @@ function pageManagedServices() {
 
 function pageApps() {
   return `
-    ${heroImage('apps', 'Cavaridge Apps', 'The AI-native operating system for managed service providers. 21 integrated apps spanning operations, security, compliance, and healthcare IT — unified under one multi-tenant platform.', 'Explore the Platform', null)}
-
-    <section class="section" style="background:var(--white)">
-      <div style="max-width:var(--max-w);margin:0 auto">
-        <div class="text-center" style="margin-bottom:2.5rem">
-          <h2>Four Suites. One Platform. Zero Silos.</h2>
-          <p style="max-width:600px;margin:0 auto;font-size:1.05rem">Every app shares authentication, tenant isolation, role-based access, and Cavaridge AI — built from the ground up as a single, coherent platform.</p>
+    <section class="hero hero-image" style="min-height:520px">
+      <img class="hero-bg" src="${HERO_IMAGES.apps}" alt="Cavaridge Apps" loading="lazy">
+      <div class="hero-content">
+        <p class="overline" style="color:var(--amber);margin-bottom:.5rem">CAVARIDGE APPS DIVISION</p>
+        <h1>The AI-native operating system<br>for managed service providers</h1>
+        <p>21 integrated applications across four product suites — operations, security, healthcare, and intelligence — unified under one multi-tenant platform. Every app shares authentication, role-based access, and Cavaridge AI.</p>
+        <div style="margin-top:2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+          <a href="https://app.cavaridge.com" target="_blank" class="btn btn-amber">Explore the Platform &rarr;</a>
+          <a href="https://app.cavaridge.com/signup.html" target="_blank" class="btn btn-white">Start Free Trial</a>
         </div>
-        <div class="services-grid">
-          ${serviceCard('server', 'Operations Suite', 'Dispatch, Scope, Roadmap, Blueprint, Vendor Watch, Migrate, and People — your entire service delivery pipeline built for how MSPs actually run day to day.')}
-          ${serviceCard('shield', 'Security & Compliance', 'Posture scoring, HIPAA compliance tracking, browser-level DNS security, and SharePoint permissions auditing. Connectors aggregate your existing tools — we never replace your scanners.')}
-          ${serviceCard('activity', 'Healthcare IT', 'ClarityCare EHR, Nurse Tools, Insights, and PawVault. Purpose-built for ASCs, clinics, and health systems — HIPAA-aligned from the platform level.')}
-          ${serviceCard('code', 'Cavaridge AI', '12 domain-specific agents + 7 functional agents orchestrated by Spaniel, surfaced through Ducky — your AI copilot across every app in the platform.')}
+      </div>
+    </section>
+
+    <section class="section-sm" style="background:var(--white)">
+      <div style="max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;text-align:center">
+        <div style="padding:1.5rem">
+          <div style="font-family:var(--font-display);font-size:2.5rem;color:var(--amber)">21</div>
+          <div style="font-size:.85rem;color:var(--mid-gray);margin-top:.25rem">Integrated Apps</div>
+        </div>
+        <div style="padding:1.5rem">
+          <div style="font-family:var(--font-display);font-size:2.5rem;color:var(--amber)">4</div>
+          <div style="font-size:.85rem;color:var(--mid-gray);margin-top:.25rem">Product Suites</div>
+        </div>
+        <div style="padding:1.5rem">
+          <div style="font-family:var(--font-display);font-size:2.5rem;color:var(--amber)">6</div>
+          <div style="font-size:.85rem;color:var(--mid-gray);margin-top:.25rem">RBAC Roles</div>
+        </div>
+        <div style="padding:1.5rem">
+          <div style="font-family:var(--font-display);font-size:2.5rem;color:var(--amber)">&infin;</div>
+          <div style="font-size:.85rem;color:var(--mid-gray);margin-top:.25rem">Tenants Supported</div>
         </div>
       </div>
     </section>
 
     <section class="section" style="background:var(--warm-white)">
       <div style="max-width:var(--max-w);margin:0 auto">
+        <div class="text-center" style="margin-bottom:3rem">
+          <p class="overline" style="color:var(--amber)">PRODUCT SUITES</p>
+          <h2>Everything an MSP needs. Nothing it doesn't.</h2>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem">
+
+          <div class="service-block" style="border-left:3px solid var(--amber)">
+            <h3 style="margin-bottom:.5rem">Operations</h3>
+            <p style="font-size:.88rem;margin-bottom:.75rem">Dispatch, project management, client roadmaps, vendor monitoring, migrations, and employee directory. The full service delivery pipeline.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:.4rem">${['Dispatch','Scope','Roadmap','Blueprint','Vendor Watch','Migrate','People'].map(a=>\`<span style="padding:2px 8px;background:rgba(94,70,92,.06);border-radius:4px;font-size:.7rem;font-weight:600;color:var(--purple)">\${a}</span>\`).join('')}</div>
+          </div>
+
+          <div class="service-block" style="border-left:3px solid var(--navy)">
+            <h3 style="margin-bottom:.5rem">Security &amp; Compliance</h3>
+            <p style="font-size:.88rem;margin-bottom:.75rem">Continuous posture scoring, HIPAA tracking, browser-level DNS security, and SharePoint permissions auditing. Connectors aggregate — we never replace your scanners.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:.4rem">${['Posture','Comply','Gateway','Permissions'].map(a=>\`<span style="padding:2px 8px;background:rgba(27,42,74,.06);border-radius:4px;font-size:.7rem;font-weight:600;color:var(--navy)">\${a}</span>\`).join('')}</div>
+          </div>
+
+          <div class="service-block" style="border-left:3px solid var(--sage)">
+            <h3 style="margin-bottom:.5rem">Healthcare IT</h3>
+            <p style="font-size:.88rem;margin-bottom:.75rem">Purpose-built for ASCs, clinics, and health systems. Co-designed by a nurse and an engineer. HIPAA-aligned from the platform level.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:.4rem">${['ClarityCare','Nurse Tools','Insights','PawVault'].map(a=>\`<span style="padding:2px 8px;background:rgba(107,143,113,.08);border-radius:4px;font-size:.7rem;font-weight:600;color:var(--sage)">\${a}</span>\`).join('')}</div>
+          </div>
+
+          <div class="service-block" style="border-left:3px solid var(--amber)">
+            <h3 style="margin-bottom:.5rem">Cavaridge AI</h3>
+            <p style="font-size:.88rem;margin-bottom:.75rem">12 domain agents and 7 functional agents orchestrated by Spaniel, surfaced through Ducky — your AI copilot that understands context across every app.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:.4rem">${['Spaniel Engine','AI Agents','Studio','Brain','Market'].map(a=>\`<span style="padding:2px 8px;background:rgba(196,136,58,.08);border-radius:4px;font-size:.7rem;font-weight:600;color:var(--amber)">\${a}</span>\`).join('')}</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--white)">
+      <div style="max-width:var(--max-w);margin:0 auto">
+        <div class="text-center" style="margin-bottom:3rem">
+          <h2>Built different. On purpose.</h2>
+        </div>
         <div class="beliefs-grid">
-          <div class="belief-card"><div class="belief-bar"></div><h3>True Multi-Tenancy</h3><p>4-tier Universal Tenant Model with row-level security on every table. Platform → MSP → Client → Site. No cross-tenant data visibility — ever.</p></div>
-          <div class="belief-card"><div class="belief-bar"></div><h3>Six-Role RBAC</h3><p>Platform Admin, MSP Admin, MSP Tech, Client Admin, Client User, and Read-Only — enforced at data, API, and UI layers simultaneously.</p></div>
-          <div class="belief-card"><div class="belief-bar"></div><h3>Built-In Billing</h3><p>Stripe-powered checkout, seat metering, trial lifecycle, and Stripe Connect for MSP reselling. Bill your clients from the same platform you serve them on.</p></div>
+          <div class="belief-card">
+            <div class="belief-bar"></div>
+            <h3>True Multi-Tenancy</h3>
+            <p>4-tier Universal Tenant Model — Platform, MSP, Client, Site — with PostgreSQL row-level security on every table. Not application-layer filtering. Database-level isolation.</p>
+          </div>
+          <div class="belief-card">
+            <div class="belief-bar"></div>
+            <h3>Connectors, Not Scanners</h3>
+            <p>Your ThreatMate, SentinelOne, and Huntress stay. We aggregate and score the data through a connector framework — 13+ integrations and growing.</p>
+          </div>
+          <div class="belief-card">
+            <div class="belief-bar"></div>
+            <h3>Healthcare From Day One</h3>
+            <p>HIPAA isn't bolted on. BAA available at sign-up. ClarityCare is on an ONC certification path. Nurse Tools is free and open-source — a gift to the nursing community.</p>
+          </div>
         </div>
       </div>
     </section>
 
     ${photoBand('apps')}
 
-    <section class="section text-center" style="background:var(--white)">
-      <div class="text-container">
-        <p class="overline" style="color:var(--amber)">PRICING</p>
-        <h2>Simple, predictable pricing</h2>
-        <p style="font-size:1.05rem;margin-bottom:.75rem"><strong>By suite:</strong> Operations ($149/seat/mo) · Security ($149/seat/mo) · Healthcare ($199/seat/mo) · Build ($99/seat/mo) · Full Platform ($349/seat/mo). Save 20% annually.</p>
-        <p style="font-size:1.05rem"><strong>By tier:</strong> Starter ($299/mo) · Professional ($799/mo) · Enterprise ($2,499/mo) · Healthcare+ ($3,999/mo). 14-day free trial on all plans.</p>
-        <div style="margin-top:2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
-          <a href="https://app.cavaridge.com/pricing.html" class="btn btn-amber" target="_blank">View Full Pricing</a>
-          <a href="https://app.cavaridge.com/signup.html" class="btn btn-white" style="border:1px solid var(--border)" target="_blank">Start Free Trial</a>
-        </div>
-      </div>
-    </section>
-
     <section class="section navy-section">
       <div class="container text-center">
-        <h2>Ready to see it in action?</h2>
-        <p style="max-width:600px;margin:0 auto 2rem">Full platform access from day one. Start your 14-day free trial at app.cavaridge.com.</p>
-        <a class="btn btn-amber" href="https://app.cavaridge.com/signup.html" target="_blank">Launch the Platform →</a>
+        <h2>See the whole platform</h2>
+        <p style="max-width:560px;margin:0 auto 2rem">Pricing, feature matrix, security details, and a 14-day free trial — everything lives at app.cavaridge.com.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+          <a href="https://app.cavaridge.com" target="_blank" class="btn btn-amber">Explore the Platform &rarr;</a>
+          <a href="https://app.cavaridge.com/signup.html" target="_blank" class="btn btn-white">Start Free Trial</a>
+        </div>
       </div>
     </section>`;
 }
