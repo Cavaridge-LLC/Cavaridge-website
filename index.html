@@ -210,6 +210,7 @@ p:last-child{margin-bottom:0}
           <span class="wordmark wordmark-white" style="font-size:1.3rem;letter-spacing:.15em;margin-top:.35rem;display:block">CAVARIDGE</span>
         </div>
         <p style="font-size:.85rem;font-style:italic;color:rgba(255,255,255,.55);margin-top:.5rem">Built to operate.</p>
+        <p style="font-size:.75rem;color:rgba(255,255,255,.4);margin-top:.35rem">Powered by Cavaridge AI 🐾</p>
       </div>
       <div>
         <p class="footer-label">Quick Links</p>
@@ -218,6 +219,7 @@ p:last-child{margin-bottom:0}
         <span class="footer-link" onclick="navigate('managed-services')">Managed Services</span>
         <span class="footer-link" onclick="navigate('puppies')">Puppies</span>
         <span class="footer-link" onclick="navigate('contact')">Contact</span>
+        <a class="footer-link" href="https://app.cavaridge.com" target="_blank">Apps Platform</a>
       </div>
       <div>
         <p class="footer-label">Contact</p>
@@ -247,7 +249,7 @@ const DIVISIONS = [
     desc:"Proactive IT management, monitoring, and support for businesses that need reliability without building an internal team. Cavaridge Managed Services operates as your IT department." },
   { name:"Apps", slug:"apps",
     img:"https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
-    desc:"Custom application development and managed hosting. We build, deploy, and run the software your business depends on." },
+    desc:"The AI-native operating system for managed service providers. 21 integrated apps for operations, security, compliance, and healthcare IT — powered by Cavaridge AI." },
   { name:"Health", slug:"health",
     img:"https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80",
     desc:"Healthcare consulting services focused on operational improvement, compliance readiness, and technology strategy for healthcare organizations." },
@@ -501,22 +503,52 @@ function pageManagedServices() {
 
 function pageApps() {
   return `
-    ${heroImage('apps', 'Cavaridge Apps', 'Custom application development and managed hosting. We build, deploy, and run the software your business depends on.')}
+    ${heroImage('apps', 'Cavaridge Apps', 'The AI-native operating system for managed service providers. 21 integrated apps spanning operations, security, compliance, and healthcare IT — unified under one multi-tenant platform.', 'Explore the Platform', null)}
+
     <section class="section" style="background:var(--white)">
       <div style="max-width:var(--max-w);margin:0 auto">
-        <h2>Services</h2>
+        <div class="text-center" style="margin-bottom:2.5rem">
+          <h2>Four Suites. One Platform. Zero Silos.</h2>
+          <p style="max-width:600px;margin:0 auto;font-size:1.05rem">Every app shares authentication, tenant isolation, role-based access, and Cavaridge AI — built from the ground up as a single, coherent platform.</p>
+        </div>
         <div class="services-grid">
-          ${serviceCard('code', 'Custom Application Development', 'Line-of-business tools, internal dashboards, workflow automation, and client-facing applications. Built to your requirements, owned by you, and maintained by us.')}
-          ${serviceCard('cloud', 'Managed Hosting', 'Reliable application hosting with monitoring, patching, backups, and uptime management. We run the infrastructure so you can focus on the business.')}
-          ${serviceCard('link', 'Integration &amp; API Development', 'Connect the systems you already use. CRM to billing, EHR to scheduling, field tools to back office. We build the bridges between your platforms.')}
+          ${serviceCard('server', 'Operations Suite', 'Dispatch, Scope, Roadmap, Blueprint, Vendor Watch, Migrate, and People — your entire service delivery pipeline built for how MSPs actually run day to day.')}
+          ${serviceCard('shield', 'Security & Compliance', 'Posture scoring, HIPAA compliance tracking, browser-level DNS security, and SharePoint permissions auditing. Connectors aggregate your existing tools — we never replace your scanners.')}
+          ${serviceCard('activity', 'Healthcare IT', 'ClarityCare EHR, Nurse Tools, Insights, and PawVault. Purpose-built for ASCs, clinics, and health systems — HIPAA-aligned from the platform level.')}
+          ${serviceCard('code', 'Cavaridge AI', '12 domain-specific agents + 7 functional agents orchestrated by Spaniel, surfaced through Ducky — your AI copilot across every app in the platform.')}
         </div>
       </div>
     </section>
-    ${photoBand('apps')}
+
     <section class="section" style="background:var(--warm-white)">
+      <div style="max-width:var(--max-w);margin:0 auto">
+        <div class="beliefs-grid">
+          <div class="belief-card"><div class="belief-bar"></div><h3>True Multi-Tenancy</h3><p>4-tier Universal Tenant Model with row-level security on every table. Platform → MSP → Client → Site. No cross-tenant data visibility — ever.</p></div>
+          <div class="belief-card"><div class="belief-bar"></div><h3>Six-Role RBAC</h3><p>Platform Admin, MSP Admin, MSP Tech, Client Admin, Client User, and Read-Only — enforced at data, API, and UI layers simultaneously.</p></div>
+          <div class="belief-card"><div class="belief-bar"></div><h3>Built-In Billing</h3><p>Stripe-powered checkout, seat metering, trial lifecycle, and Stripe Connect for MSP reselling. Bill your clients from the same platform you serve them on.</p></div>
+        </div>
+      </div>
+    </section>
+
+    ${photoBand('apps')}
+
+    <section class="section text-center" style="background:var(--white)">
       <div class="text-container">
-        <p>Cavaridge Apps handles the software side of your operation. Whether you need a custom tool built from scratch, an existing application hosted and managed, or systems connected through APIs — this is the division to call.</p>
-        <div style="margin-top:2rem"><a class="btn btn-amber" onclick="navigate('contact')">Start a Project</a></div>
+        <p class="overline" style="color:var(--amber)">PRICING</p>
+        <h2>Simple per-technician pricing</h2>
+        <p style="font-size:1.05rem">Starter (free) · Professional ($99/tech/mo) · Business ($179/tech/mo) · Enterprise (custom). 14-day free trial on paid plans. No credit card required.</p>
+        <div style="margin-top:2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+          <a href="https://app.cavaridge.com/pricing.html" class="btn btn-amber" target="_blank">View Full Pricing</a>
+          <a href="https://app.cavaridge.com/signup.html" class="btn btn-white" style="border:1px solid var(--border)" target="_blank">Start Free Trial</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section navy-section">
+      <div class="container text-center">
+        <h2>Ready to see it in action?</h2>
+        <p style="max-width:600px;margin:0 auto 2rem">Full platform access from day one. Start your 14-day free trial at app.cavaridge.com.</p>
+        <a class="btn btn-amber" href="https://app.cavaridge.com/signup.html" target="_blank">Launch the Platform →</a>
       </div>
     </section>`;
 }
