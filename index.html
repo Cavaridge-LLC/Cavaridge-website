@@ -548,25 +548,25 @@ function pageApps() {
           <div class="service-block" style="border-left:3px solid var(--amber)">
             <h3 style="margin-bottom:.5rem">Operations</h3>
             <p style="font-size:.88rem;margin-bottom:.75rem">Dispatch, project management, client roadmaps, vendor monitoring, migrations, and employee directory. The full service delivery pipeline.</p>
-            <div style="display:flex;flex-wrap:wrap;gap:.4rem">${['Dispatch','Scope','Roadmap','Blueprint','Vendor Watch','Migrate','People'].map(a=>\`<span style="padding:2px 8px;background:rgba(94,70,92,.06);border-radius:4px;font-size:.7rem;font-weight:600;color:var(--purple)">\${a}</span>\`).join('')}</div>
+            <div style="display:flex;flex-wrap:wrap;gap:.4rem">${['Dispatch','Scope','Roadmap','Blueprint','Vendor Watch','Migrate','People'].map(a=>'<span style="padding:2px 8px;background:rgba(94,70,92,.06);border-radius:4px;font-size:.7rem;font-weight:600;color:var(--purple)">'+a+'</span>').join('')}</div>
           </div>
 
           <div class="service-block" style="border-left:3px solid var(--navy)">
             <h3 style="margin-bottom:.5rem">Security &amp; Compliance</h3>
             <p style="font-size:.88rem;margin-bottom:.75rem">Continuous posture scoring, HIPAA tracking, browser-level DNS security, and SharePoint permissions auditing. Connectors aggregate — we never replace your scanners.</p>
-            <div style="display:flex;flex-wrap:wrap;gap:.4rem">${['Posture','Comply','Gateway','Permissions'].map(a=>\`<span style="padding:2px 8px;background:rgba(27,42,74,.06);border-radius:4px;font-size:.7rem;font-weight:600;color:var(--navy)">\${a}</span>\`).join('')}</div>
+            <div style="display:flex;flex-wrap:wrap;gap:.4rem">${['Posture','Comply','Gateway','Permissions'].map(a=>'<span style="padding:2px 8px;background:rgba(27,42,74,.06);border-radius:4px;font-size:.7rem;font-weight:600;color:var(--navy)">'+a+'</span>').join('')}</div>
           </div>
 
           <div class="service-block" style="border-left:3px solid var(--sage)">
             <h3 style="margin-bottom:.5rem">Healthcare IT</h3>
             <p style="font-size:.88rem;margin-bottom:.75rem">Purpose-built for ASCs, clinics, and health systems. Co-designed by a nurse and an engineer. HIPAA-aligned from the platform level.</p>
-            <div style="display:flex;flex-wrap:wrap;gap:.4rem">${['ClarityCare','Nurse Tools','Insights','PawVault'].map(a=>\`<span style="padding:2px 8px;background:rgba(107,143,113,.08);border-radius:4px;font-size:.7rem;font-weight:600;color:var(--sage)">\${a}</span>\`).join('')}</div>
+            <div style="display:flex;flex-wrap:wrap;gap:.4rem">${['ClarityCare','Nurse Tools','Insights','PawVault'].map(a=>'<span style="padding:2px 8px;background:rgba(107,143,113,.08);border-radius:4px;font-size:.7rem;font-weight:600;color:var(--sage)">'+a+'</span>').join('')}</div>
           </div>
 
           <div class="service-block" style="border-left:3px solid var(--amber)">
             <h3 style="margin-bottom:.5rem">Cavaridge AI</h3>
             <p style="font-size:.88rem;margin-bottom:.75rem">12 domain agents and 7 functional agents orchestrated by Spaniel, surfaced through Ducky — your AI copilot that understands context across every app.</p>
-            <div style="display:flex;flex-wrap:wrap;gap:.4rem">${['Spaniel Engine','AI Agents','Studio','Brain','Market'].map(a=>\`<span style="padding:2px 8px;background:rgba(196,136,58,.08);border-radius:4px;font-size:.7rem;font-weight:600;color:var(--amber)">\${a}</span>\`).join('')}</div>
+            <div style="display:flex;flex-wrap:wrap;gap:.4rem">${['Spaniel Engine','AI Agents','Studio','Brain','Market'].map(a=>'<span style="padding:2px 8px;background:rgba(196,136,58,.08);border-radius:4px;font-size:.7rem;font-weight:600;color:var(--amber)">'+a+'</span>').join('')}</div>
           </div>
 
         </div>
